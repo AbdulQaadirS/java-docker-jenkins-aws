@@ -1,11 +1,11 @@
 <!-- OLD VERSION (FOR DEMO SWITCH) -->
-<!--
+
 <form action="action_page.php">
   <h1>Old UI Working</h1>
   <button type="submit">Submit</button>
 </form>
--->
 
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -125,6 +125,7 @@ color:#a0aec0;
 <span class="tag">AWS</span>
 <span class="tag">Maven</span>
 </div>
+-->
 
 </div>
 
