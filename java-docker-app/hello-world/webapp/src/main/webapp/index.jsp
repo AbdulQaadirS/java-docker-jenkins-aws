@@ -1,3 +1,132 @@
-sudo docker exec registerapp bash -c 'cat > /usr/local/tomcat/webapps/webapp/index.jsp << '"'"'HTMLEOF'"'"'
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>DevOps Learning Portal</title><style>*{margin:0;padding:0;box-sizing:border-box;}body{font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);min-height:100vh;display:flex;align-items:center;justify-content:center;}.container{background:rgba(255,255,255,0.05);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:40px;width:100%;max-width:460px;box-shadow:0 25px 45px rgba(0,0,0,0.3);}.logo{text-align:center;margin-bottom:30px;}.logo h1{color:#e94560;font-size:28px;font-weight:700;letter-spacing:2px;}.logo p{color:#a0aec0;font-size:13px;margin-top:6px;}.badge{display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(233,69,96,0.15);border:1px solid rgba(233,69,96,0.3);border-radius:50px;padding:8px 20px;margin:0 auto 25px;width:fit-content;}.badge span{color:#e94560;font-size:12px;font-weight:600;}.dot{width:8px;height:8px;background:#e94560;border-radius:50%;animation:pulse 1.5s infinite;}@keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}h2{color:#fff;font-size:22px;font-weight:600;margin-bottom:8px;text-align:center;}.subtitle{color:#a0aec0;font-size:13px;text-align:center;margin-bottom:28px;}.form-group{margin-bottom:18px;}label{color:#cbd5e0;font-size:13px;font-weight:500;display:block;margin-bottom:7px;}input{width:100%;padding:12px 16px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:10px;color:#fff;font-size:14px;outline:none;transition:all 0.3s;}input::placeholder{color:#718096;}input:focus{border-color:#e94560;background:rgba(233,69,96,0.08);box-shadow:0 0 0 3px rgba(233,69,96,0.15);}.row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}.btn{width:100%;padding:14px;background:linear-gradient(135deg,#e94560,#c62a47);border:none;border-radius:10px;color:#fff;font-size:15px;font-weight:600;cursor:pointer;letter-spacing:1px;transition:all 0.3s;margin-top:8px;}.btn:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(233,69,96,0.4);}.terms{color:#718096;font-size:12px;text-align:center;margin-top:14px;}.terms a{color:#e94560;text-decoration:none;}.signin{text-align:center;margin-top:20px;color:#a0aec0;font-size:13px;}.signin a{color:#e94560;text-decoration:none;font-weight:600;}.stack{display:flex;justify-content:center;gap:10px;margin-top:25px;flex-wrap:wrap;}.tag{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:4px 10px;color:#a0aec0;font-size:11px;}</style></head><body><div class="container"><div class="logo"><h1>&#9881; DevOps Portal</h1><p>CI/CD Pipeline Project &mdash; AWS &bull; Jenkins &bull; Docker</p></div><div class="badge"><div class="dot"></div><span>LIVE ON AWS EC2</span></div><h2>Create Your Account</h2><p class="subtitle">Join the DevOps Learning Platform</p><form action="success.jsp" method="get"><div class="form-group"><label>Full Name</label><input type="text" name="Name" placeholder="Enter your full name" required></div><div class="row"><div class="form-group"><label>Mobile Number</label><input type="text" name="mobile" placeholder="+91 XXXXX XXXXX" required></div><div class="form-group"><label>Email Address</label><input type="text" name="email" placeholder="you@email.com" required></div></div><div class="row"><div class="form-group"><label>Password</label><input type="password" name="psw" placeholder="Min. 8 characters" required></div><div class="form-group"><label>Confirm Password</label><input type="password" name="psw-repeat" placeholder="Repeat password" required></div></div><button type="submit" class="btn">CREATE ACCOUNT &#8594;</button><p class="terms">By registering you agree to our <a href="#">Terms &amp; Privacy Policy</a></p></form><p class="signin">Already have an account? <a href="#">Sign in</a></p><div class="stack"><span class="tag">Jenkins CI/CD</span><span class="tag">Docker</span><span class="tag">AWS EC2</span><span class="tag">Apache Maven</span><span class="tag">Tomcat</span></div></div></body></html>
-HTMLEOF'
+<!-- OLD VERSION (FOR DEMO SWITCH) -->
+<!--
+<form action="action_page.php">
+  <h1>Old UI Working</h1>
+  <button type="submit">Submit</button>
+</form>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevOps Learning Portal</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:"Segoe UI",Tahoma,Geneva,Verdana,sans-serif;
+background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.container{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,0.1);
+border-radius:20px;
+padding:40px;
+width:100%;
+max-width:460px;
+box-shadow:0 25px 45px rgba(0,0,0,0.3);
+}
+
+.logo{text-align:center;margin-bottom:25px;}
+.logo h1{color:#e94560;font-size:26px;}
+.logo p{color:#a0aec0;font-size:12px;}
+
+h2{color:#fff;text-align:center;margin-bottom:5px;}
+.subtitle{color:#a0aec0;text-align:center;margin-bottom:20px;font-size:12px;}
+
+.form-group{margin-bottom:12px;}
+label{color:#cbd5e0;font-size:12px;}
+
+input{
+width:100%;
+padding:10px;
+background:rgba(255,255,255,0.07);
+border:1px solid rgba(255,255,255,0.12);
+border-radius:8px;
+color:#fff;
+}
+
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+
+.btn{
+width:100%;
+padding:12px;
+background:#e94560;
+border:none;
+border-radius:8px;
+color:#fff;
+margin-top:10px;
+cursor:pointer;
+}
+
+.stack{
+display:flex;
+justify-content:center;
+gap:8px;
+margin-top:15px;
+flex-wrap:wrap;
+}
+
+.tag{
+background:rgba(255,255,255,0.07);
+padding:4px 8px;
+border-radius:6px;
+font-size:10px;
+color:#a0aec0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="logo">
+<h1>⚙ DevOps Portal</h1>
+<p>AWS • Jenkins • Docker CI/CD</p>
+</div>
+
+<h2>Create Account</h2>
+<p class="subtitle">Pipeline Live Deployment</p>
+
+<form action="success.jsp" method="get">
+
+<div class="form-group">
+<label>Name</label>
+<input type="text" name="Name" required>
+</div>
+
+<div class="row">
+<input type="text" name="mobile" placeholder="Mobile" required>
+<input type="text" name="email" placeholder="Email" required>
+</div>
+
+<div class="row">
+<input type="password" name="psw" placeholder="Password" required>
+<input type="password" name="psw-repeat" placeholder="Confirm" required>
+</div>
+
+<button class="btn">CREATE ACCOUNT</button>
+
+</form>
+
+<div class="stack">
+<span class="tag">Jenkins</span>
+<span class="tag">Docker</span>
+<span class="tag">AWS</span>
+<span class="tag">Maven</span>
+</div>
+
+</div>
+
+</body>
+</html>
