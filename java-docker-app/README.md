@@ -478,8 +478,7 @@ docker run -d --name tomcatv1 -p 8086:8080 tomcat:v1
 
 Now let’s access this application from our browser using URL <http://54.173.227.226:8086/webapp/>
 
-![aws](<img width="1919" height="873" alt="image" src="https://github.com/user-attachments/assets/9b84ebfd-ecb8-4709-a754-49b9c1726965" />
-)
+![aws]<img width="1919" height="873" alt="Screenshot 2026-04-13 154846" src="https://github.com/user-attachments/assets/5a601cab-b8c3-45ef-9929-1070bb7a53d4" />)
 
 _So far we have successfully copied the artifacts to our dockerhost and then manually used docker commands like docker build and docker run to deploy our application on the docker container._
 
@@ -507,8 +506,7 @@ If the build is successful we should see our new docker image and docker contain
 
 Also, we if access our new dockerized app from our browser on port 8087, the result should be something like this:
 
-![aws](<img width="1918" height="949" alt="image" src="https://github.com/user-attachments/assets/e598ca81-05aa-4c47-976f-91409104fe73" />
-)
+![aws]<img width="1918" height="949" alt="Screenshot 2026-04-13 154734" src="https://github.com/user-attachments/assets/e9c9fa30-5571-41cb-9284-abfe6192cd6f" />)
 
 ### Conclusion
 
