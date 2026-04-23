@@ -1,0 +1,13 @@
+version: '3'
+services:
+  java-app:
+    build: ./java-docker-app/hello-world
+    ports:
+      - "8087:8080"
+    depends_on:
+      - python-service
+
+  python-service:
+    build: ./python-service
+    ports:
+      - "5000:5000"
