@@ -1,1 +1,4 @@
 flask
+python-service/
+docker-compose.yml
+Jenkinsfile
