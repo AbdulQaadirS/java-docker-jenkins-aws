@@ -16,8 +16,13 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'cd /opt/docker && docker-compose down || true'
-                sh 'cd /opt/docker && docker-compose up -d --build'
+                sh '''
+                ssh -o StrictHostKeyChecking=no ec2-user@3.95.196.251 "
+                cd /opt/docker &&
+                sudo docker-compose down || true &&
+                sudo docker-compose up -d --build
+                "
+                '''
             }
         }
     }
